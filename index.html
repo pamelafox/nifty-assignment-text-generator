@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Generator Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+    <h1>Text Generator Project</h1>
+    <p>Author Name (xxx@xxx), Author Name (xxx@xxx)</p>
+
+
+    <h2>Topics</h2>
+
+    <p>Python string methods, dict mutation, random module.</p>
+
+    <h2>Abstract</h2>
+    <p>In the Procedural Text Generator project, students generate new sentences using a Markov chain based on an online source text. This project is designed for introductory Python classes, with a specific focus on string manipulation and dict mutation.
+    </p>
+
+    <p>Before starting code for the project, students are first introduced in lecture to Markov chains and the ways they can be used to model language. (See attachments for slides)</p>
+    <img src="toddler_chain.png" alt="Diagram of Markov chain for a simple Toddler source text" width="500">
+
+    <img src="toddler_chain_output.png" alt="Diagram of output sentence from a Toddler text"  width="500">
+
+    <p>
+    In the first part of the project, students download text from the web and use a sequence of string methods to tokenize that text into sentences and words. Then students build the chain using a Python dict where each key is a word and the value is a list of words that may come after.
+    </p>
+
+    <p>Finally, they write a loop that can generate sentences using the chain and randomization.
+    </p>
+
+    <p>
+    The assignment allows for students to bring self-expression into their work, since they can both select their source text and share their favorite generated sentences. Their code can still be automatically tested for correctness, however, so this project can be used in large classes.
+    </p>
+
+
+
+    <h2>Examples</h2>
+
+    <p>Here are some outputs from student-made chains along with their source text.</p>
+
+    <blockquote class="blockquote">
+        <p>"the poor guiltless of winding among the elements of the recollections"</p>
+        <footer class="blockquote-footer">Mary Shelley, Frankenstein</footer>
+    </blockquote>
+
+    <blockquote class="blockquote">
+        <p>"let us to judge only in our mind"</p>
+        <footer class="blockquote-footer">Plato, Republic</footer>
+    </blockquote>
+
+    <blockquote class="blockquote">
+        <p> "“she’s embarrassed?” he said low in my memory that, though i discovered and scrubbing-brushes and a moment itself."
+        </p>
+        <footer class="blockquote-footer">F. Scott Fitzgerald, The Great Gatsby</footer>
+    </blockquote>
+
+
+    <blockquote class="blockquote">
+        <p>"the end of the glamour of silk stockings and _what do with yellow paper"</p>
+        <footer class="blockquote-footer">Jean Webster, Daddy Long-Legs</footer>
+    </blockquote>
+
+
+    <blockquote class="blockquote">
+        <p>"the early bird is only partially true, it pours"</p>
+        <footer class="blockquote-footer">(Scraped) Wise Sayings</footer>
+    </blockquote>
+
+    <blockquote class="blockquote">
+        <p>"it is perfect warmth it for jackets considering they continuously have come to sleep! comfortable inside and its pretty slim on cold months pockets are not too long for him another color is great however is really loves it"
+        </p>
+        <footer class="blockquote-footer">(Scraped) Clothing Reviews</footer>
+    </blockquote>
+
+    <h2>Dependencies</h2>
+
+    <p>This project assumes students are already comfortable with variables, user-defined functions, while/for loops, and lists.
+    </p>
+    <p>
+    We distributed the project as a <a href="textgenerator.ipynb">Jupyter notebook</a> and used doctests for grading the functions. However, it could also be delivered in a .py file and tested with other frameworks.
+    </p>
+
+    <h2>Audience</h2>
+
+    <p>This project was used in an introductory Python class with adult learners. It would be appropriate for a CS1 in HS or college.
+    </p>
+
+    <h2>Variants</h2>
+
+    <p>There are many possible variants for this project.</p>
+    <ul>
+        <li>It can be ported to any language with a hash-map data structure, like Java for a CS A class.
+            <a href="java_bigram/Markov.java">See Java Markov chain example code.</a>
+        <li>The project can be written with functions or with classes.
+            <a href="python_oop_scraping_bigram/markov.py">See class-based Markov chain example code.</a>
+        <li>The project can be used to explore web scraping, requiring students to find a webpage and extract text from its HTML.
+            <a href="python_oop_scraping_bigram/main.py">See web scraping example code.</a>
+        <li>Similarly, it can be used to explore web APIs, requiring students to parse JSON or XML to build the source text.
+            <a href="python_oop_api_bigram/main.py">See API example code.</a>
+        <li>The project can be made more difficult by requiring additional text processing or by requiring the chain to be based on bigrams instead of unigrams.
+            <a href="python_oop_scraping_bigram/markov.py">See bigram-based code.</a>
+    </p>
+
+    <p>Those variants are not in assignment form yet, so you would need to prepare student facing versions of them,
+        removing code and adding instructions like the <a href="textgenerator.ipynb">assignment notebook</a>.</p>
+
+    <h2>Strengths</h2>
+
+    <p>Besides practicing string and dict syntax, this project helps students gain a deeper understanding of mutability versus return values, as some functions require returning new values by manipulating immutable (string) values while other functions should only mutate an argument and return nothing. That is one of the most common sources of confusion for students, though we reduced confusion through the addition of scaffolding exercises on dictionary mutation before the project.</p>
+
+
+    <p>This project demonstrates a compelling usage of the dict data structure. Programming a Markov chain requires the O(1) efficiency of data access in a dict, since sentence generation performs a dict access for each word in the sentence. I have attempted to port this project to languages that do not have hash map data structures, and the sentence generation runs too slowly to be practical. The instructor could demonstrate and time a list-based approach versus dict-based approach to make that efficiency difference quite obvious.</p>
+
+    <p>Building a basic procedural text generator using a Markov chain can be a gateway to discussing (and even implementing) other text generation techniques, like deep learning or syntax tree based approaches. It's also a gateway to discuss procedural generation generally, and its wide use in video games and 3D movies. For our class, I asked a game developer to give a guest lecture on how his game uses Markov chains and similar techniques to make an open world style game.</p>
+
+    <h2>Weaknesses</h2>
+
+    <p>Before students can code a Markov chain, they must understand what it is, and that can become an obstacle for some students. To help students with that understanding, we kick-off the project with a lecture about Markov chains and a walk-through of a sample chain. Some students may benefit from additional explanations or visualizations, however. Relatedly, a student who has seen Markov chains in a previous class (such as a statistical techniques class) may have an unfair advantage over a student who has never seen them before. </p>
+
+    <p>This project encourages students to select their own source text (typically a Project Gutenberg book), which leads to more diversity in project output across the class but can also lead to disparity in sentence generation quality. Some source texts require much more processing than what's required by the project, and students may be disappointed in their generated sentences. The instructional staff can offer tips to those students who want to improve their text processing step.</p>
+
+    <h2>Attachments</h2>
+
+    <ul>
+        <li><a href="textgenerator.ipynb">Jupyter notebook</a>
+        <li><a href="slides.pdf">Slides (PDF)</a>
+        <li><a href="slides.pptx">Slides (PPTX)</a>
+        <li><a href="java_bigram/">Variant: Java</a>
+        <li><a href="python_oop_scraping_bigram/">Variant: Python OOP, Bigram, Scraping</a>
+        <li><a href="python_oop_api_bigram/">Variant: Python OOP, Bigram, APIs</a>
+    </ul>
+    </div>
+  </body>
+</html>
